@@ -1,7 +1,7 @@
 {
   "name": "@fmvilas/sse",
   "version": "0.0.1",
-  "description": "HTTP Server Sent Events implementation",
+  "description": "HTTP Server-Sent Events implementation",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test"
