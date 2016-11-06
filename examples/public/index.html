@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SSE example</title>
+</head>
+<body>
+  Open your terminal
+
+
+  <script>
+  var es = new EventSource('/sse');
+
+  es.addEventListener('hello', function (event) {
+    console.log(event.data);
+  });
+  </script>
+</body>
+</html>
