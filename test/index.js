@@ -93,42 +93,42 @@ describe('SSE', () => {
   describe('#sendEvent', () => {
     it('sends string data', (done) => {
       const es = new EventSource(`${host}/sse/event/string`)
-      es.addEventListener('mytopic', (event) => {
+      es.on('mytopic', (event) => {
         assert.strictEqual(event.data, 'hello')
         done()
       })
     })
     it('sends multiline string data', (done) => {
       const es = new EventSource(`${host}/sse/event/multiline`)
-      es.addEventListener('mytopic', (event) => {
+      es.on('mytopic', (event) => {
         assert.strictEqual(event.data, 'multiline\n\nsupport')
         done()
       })
     })
     it('sends json data', (done) => {
       const es = new EventSource(`${host}/sse/event/json`)
-      es.addEventListener('mytopic', (event) => {
+      es.on('mytopic', (event) => {
         assert.strictEqual(event.data, '{"json":{"support":true}}')
         done()
       })
     })
     it('sends function response as data', (done) => {
       const es = new EventSource(`${host}/sse/event/fn`)
-      es.addEventListener('mytopic', (event) => {
+      es.on('mytopic', (event) => {
         assert.strictEqual(event.data, '{"json":{"afterFn":true}}')
         done()
       })
     })
     it('sends empty data', (done) => {
       const es = new EventSource(`${host}/sse/event`)
-      es.addEventListener('mytopic', (event) => {
+      es.on('mytopic', (event) => {
         assert.strictEqual(event.data, '')
         done()
       })
     })
     it('allows topic with spaces', (done) => {
       const es = new EventSource(`${host}/sse/event/spaced-topic`)
-      es.addEventListener('my topic', (event) => {
+      es.on('my topic', (event) => {
         assert.strictEqual(event.data, 'hello')
         done()
       })
